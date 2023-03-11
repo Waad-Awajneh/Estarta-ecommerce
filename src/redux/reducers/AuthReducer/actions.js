@@ -1,5 +1,6 @@
 import * as CONSTANTS from "./constant";
 import { magic } from "../../../magic-sdk/magic-sdk";
+
 export const Login = (email) => async (dispatch) => {
   dispatch({ type: CONSTANTS.AUTH_LOADING });
   try {
@@ -16,6 +17,7 @@ export const Login = (email) => async (dispatch) => {
     dispatch({ type: CONSTANTS.AUTH_FAILED, payload: error });
   }
 };
+
 export const Logout = () => async (dispatch) => {
   dispatch({ type: CONSTANTS.AUTH_LOADING });
   try {
