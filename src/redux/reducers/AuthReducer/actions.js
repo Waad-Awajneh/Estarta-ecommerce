@@ -4,7 +4,7 @@ import { magic } from "../../../magic-sdk/magic-sdk";
 export const Login = (email) => async (dispatch) => {
   dispatch({ type: CONSTANTS.AUTH_LOADING });
   try {
-    const res = await magic.auth.loginWithMagicLink({ email });
+    await magic.auth.loginWithMagicLink({ email });
     const userMetaData = await magic.user.getMetadata();
     const Token = await magic.user.getIdToken();
     localStorage.setItem("token", Token);
@@ -21,7 +21,7 @@ export const Login = (email) => async (dispatch) => {
 export const Logout = () => async (dispatch) => {
   dispatch({ type: CONSTANTS.AUTH_LOADING });
   try {
-    const res = await magic.user.logout();
+    await magic.user.logout();
 
     localStorage.clear();
     dispatch({
