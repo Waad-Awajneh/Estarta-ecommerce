@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+//react hooks
+import { useState } from "react";
+//redux
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import style from "./style.module.css";
 import { Logout } from "../../redux/reducers/AuthReducer/actions";
-
+//router-dom
+import { Link } from "react-router-dom";
+//react icon
 import { HiOutlineUserCircle } from "react-icons/hi";
+//style
+import style from "./style.module.css";
+
 export default function LogoutBox() {
   const [isOpenLogoutBox, setIsOpenLogoutBox] = useState(false);
   const { user } = useSelector((state) => state.AuthReducer);

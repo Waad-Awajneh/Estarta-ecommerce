@@ -1,5 +1,7 @@
 import React from "react";
+//icon
 import { RingLoader } from "react-spinners";
+//style
 import style from "./style.module.css";
 
 export default function Loading() {
