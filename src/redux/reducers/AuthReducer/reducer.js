@@ -24,8 +24,16 @@ export default function AuthReducer(state = initialState, action) {
     case CONSTANTS.AUTH_FAILED:
       return { ...state, loading: false, error: action.payload };
 
-    case CONSTANTS.AUTH_LOGOUT:
-      return { ...state, loading: false, isAuth: false, user: {} };
+    case CONSTANTS.AUTH_CLEAR:
+      return {
+        ...state,
+        loading: false,
+        isAuth: false,
+        user: {},
+      };
+
+    case CONSTANTS.AUTH_STOP_LOADING:
+      return { ...state, loading: false };
     default:
       return state;
   }

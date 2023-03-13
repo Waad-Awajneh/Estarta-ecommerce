@@ -1,31 +1,26 @@
-import { lazy, Suspense } from "react";
-import { useSelector } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Suspense } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Loading from "./components/Loading/Loading";
-import Navbar from "./components/NavBar/Navbar";
-
-const LoginPage = lazy(() => import("./pages/Login/Login"));
-const Cart = lazy(() => import("./pages/Cart/Cart"));
-const Home = lazy(() => import("./pages/Home/Home"));
-const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
-const Products = lazy(() => import("./pages/Products/Products"));
-
+import Navbar from "./components/Navbar/Navbar";
+import { checkToken } from "./redux/reducers/AuthReducer/actions";
+import AllRoutes from "./Routes/routes";
 function App() {
-  const { loading } = useSelector((state) => state.AuthReducer);
+  const { loading, isAuth } = useSelector((state) => state.AuthReducer);
 
+  const dispatch = useDispatch();
+
+  console.log({ loading, isAuth });
+
+  if (isAuth) {
+    dispatch(checkToken()).then((res) => console.log(res));
+  }
   if (loading) return <Loading />;
-
   return (
     <div className="App">
+      {console.log("in")}
       <Suspense fallback="Loading .....">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AllRoutes />
       </Suspense>
     </div>
   );
