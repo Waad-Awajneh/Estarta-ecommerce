@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "./components/Loading/Loading";
 import Navbar from "./components/Navbar/Navbar";
@@ -11,9 +11,10 @@ function App() {
 
   console.log({ loading, isAuth });
 
-  if (isAuth) {
-    dispatch(checkToken()).then((res) => console.log(res));
-  }
+  useEffect(() => {
+    if (isAuth) dispatch(checkToken());
+  }, [isAuth]);
+
   if (loading) return <Loading />;
   return (
     <div className="App">

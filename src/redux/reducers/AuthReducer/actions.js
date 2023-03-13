@@ -35,19 +35,15 @@ export const Logout = () => async (dispatch) => {
 export const checkToken = () => async (dispatch) => {
   dispatch({ type: CONSTANTS.AUTH_LOADING });
   try {
-    console.log("tttttttttttttttttttttttttttttttttttttttt");
-    // const magicToken = await magic.user.getIdToken();
+    await magic.user.getIdToken();
 
-    // console.log(magicToken);
     dispatch({
       type: CONSTANTS.AUTH_STOP_LOADING,
     });
-
     return true;
   } catch (error) {
-    // dispatch({ type: CONSTANTS.AUTH_CLEAR });
-    // localStorage.clear();
-
+    dispatch({ type: CONSTANTS.AUTH_CLEAR });
+    localStorage.clear();
     return false;
   }
 };
