@@ -22,8 +22,8 @@ export const Logout = () => async (dispatch) => {
   dispatch({ type: CONSTANTS.AUTH_LOADING });
   try {
     const res = await magic.user.logout();
-    localStorage.setItem("token", "");
-    localStorage.setItem("user", "");
+
+    localStorage.clear();
     dispatch({
       type: CONSTANTS.AUTH_LOGOUT,
     });

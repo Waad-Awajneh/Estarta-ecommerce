@@ -3,8 +3,8 @@ import * as CONSTANTS from "./constant";
 const initialState = {
   loading: false,
   error: null,
-  isAuth: localStorage.getItem("token") ? true : false,
-  user: localStorage.getItem("user"),
+  isAuth: !!localStorage.getItem("token") || false,
+  user: JSON.parse(localStorage.getItem("user")),
 };
 
 export default function AuthReducer(state = initialState, action) {

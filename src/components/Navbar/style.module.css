@@ -6,3 +6,16 @@
     padding: 20px 0;
     border-bottom: 2px solid white;
 }
+
+.box {
+    position: relative;
+}
+
+.LogoutBox {
+    position: absolute;
+    background: rgb(152, 136, 136);
+    padding: 10px;
+    border-radius: 8px;
+    right: -2px;
+    top: 41px;
+}
