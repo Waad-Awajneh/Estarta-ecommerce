@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+//hooks
+import { useEffect, useState } from "react";
+//router-dom
 import { useNavigate } from "react-router-dom";
+//redux
+import { useDispatch, useSelector } from "react-redux";
 import { Login } from "../../redux/reducers/AuthReducer/actions";
+//style
 import style from "./style.module.css";
 
 export default function LoginPage() {

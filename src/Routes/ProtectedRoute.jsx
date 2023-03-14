@@ -1,5 +1,6 @@
-import React from "react";
+//redux
 import { useSelector } from "react-redux";
+//router-dom
 import { Navigate } from "react-router-dom";
 
 export default function ProtectedRoute({ element }) {
