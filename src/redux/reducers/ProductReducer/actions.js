@@ -25,7 +25,13 @@ export const getProducts = () => async (dispatch) => {
 
 export const quantityPlus = (product) => async (dispatch) => {
   dispatch({
-    type: CONSTANTS.QUANTITY_PLUS,
+    type: CONSTANTS.QUANTITY_UPDATE,
     payload: { ...product, quantity: product.quantity + 1 },
+  });
+};
+export const quantityDecrease = (product) => async (dispatch) => {
+  dispatch({
+    type: CONSTANTS.QUANTITY_UPDATE,
+    payload: { ...product, quantity: product.quantity - 1 },
   });
 };
