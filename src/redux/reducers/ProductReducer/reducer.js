@@ -25,6 +25,16 @@ export default function productsReducer(state = initialState, action) {
         loading: false,
         error: action.payload,
       };
+    case CONSTANTS.QUANTITY_PLUS:
+      console.log(action.payload);
+      const productsWithNewQuantity = state.products.map((product) =>
+        product.id !== action.payload.id ? product : action.payload
+      );
+      console.log(productsWithNewQuantity);
+      return {
+        ...state,
+        products: productsWithNewQuantity,
+      };
 
     default:
       return state;

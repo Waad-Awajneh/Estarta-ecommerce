@@ -9,6 +9,10 @@
 
 .box {
     position: relative;
+    display: flex;
+    column-gap: 8px;
+
+
 }
 
 .LogoutBox {
@@ -18,4 +22,11 @@
     border-radius: 8px;
     right: -2px;
     top: 41px;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
 }
