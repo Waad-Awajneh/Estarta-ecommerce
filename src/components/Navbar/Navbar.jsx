@@ -1,9 +1,14 @@
-import React from "react";
+//redux
 import { useSelector } from "react-redux";
+//routerDom
 import { Link, NavLink } from "react-router-dom";
+//component
 import LogoutBox from "./Logout";
+//style
 import style from "./style.module.css";
+//icons
 import { RiShoppingCartLine } from "react-icons/ri";
+
 export default function Navbar() {
   const { isAuth } = useSelector((state) => state.AuthReducer);
   const { cartItems } = useSelector((state) => state.CartReducer);

@@ -1,9 +1,11 @@
+//redux
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   addToCart,
   removeFromCart,
 } from "../../redux/reducers/CartReducer/actions";
+//router-dom
+import { Link } from "react-router-dom";
 import style from "./style.module.css";
 
 export default function Cart() {
