@@ -8,6 +8,13 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import style from "./style.module.css";
 import { addToCart } from "../../redux/reducers/CartReducer/actions";
 
+//toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+//toastify
+import { toast } from "react-toastify";
+
 export default function Products() {
   const { products } = useSelector((state) => state.productsReducer);
   const dispatch = useDispatch();
@@ -18,6 +25,15 @@ export default function Products() {
 
   const handelAddToCart = (product) => {
     dispatch(addToCart(product));
+    toast.success("Product Added Successfully", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+    });
   };
   return (
     <div className={style.cards}>
@@ -31,6 +47,12 @@ export default function Products() {
             <button onClick={() => handelAddToCart(product)}>
               Add To Cart
             </button>
+            <ToastContainer
+              position="top-right"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={true}
+            />
           </div>
         );
       })}

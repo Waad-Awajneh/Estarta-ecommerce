@@ -17,11 +17,12 @@
 
 .LogoutBox {
     position: absolute;
-    background: rgb(152, 136, 136);
+    background: rgb(119, 119, 156);
     padding: 10px;
     border-radius: 8px;
     right: -2px;
     top: 41px;
+    width: 250px;
 }
 
 .navLinks {

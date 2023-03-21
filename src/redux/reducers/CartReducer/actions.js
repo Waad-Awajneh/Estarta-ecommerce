@@ -1,5 +1,6 @@
 import { quantityDecrease, quantityPlus } from "../ProductReducer/actions";
 import * as CONSTANTS from "./constant";
+
 export const addToCart = (product) => (dispatch) => {
   dispatch(quantityPlus(product));
   dispatch({
