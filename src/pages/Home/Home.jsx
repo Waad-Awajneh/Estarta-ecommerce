@@ -15,7 +15,6 @@ export default function Home() {
         </button>
       ) : (
         <button>
-          {" "}
           <Link to={"/login"}>Login, to start shopping </Link>
         </button>
       )}

@@ -22,7 +22,7 @@ function App() {
   if (loading) return <Loading />;
   return (
     <div className="App">
-      <Suspense fallback="Loading .....">
+      <Suspense fallback={<Loading />}>
         <Navbar />
         <AllRoutes />
       </Suspense>

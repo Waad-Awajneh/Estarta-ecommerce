@@ -23,7 +23,7 @@ export default function Cart() {
       <div className={style.cards}>
         {cartItems.length === 0 ? (
           <h2>
-            No Items in cart.{" "}
+            No Items in cart.
             <Link to={"/products"} className={style.link}>
               Add One !
             </Link>

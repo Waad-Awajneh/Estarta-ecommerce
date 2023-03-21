@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getProducts,
-  quantityPlus,
-} from "../../redux/reducers/ProductReducer/actions";
+import { getProducts } from "../../redux/reducers/ProductReducer/actions";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import style from "./style.module.css";
 import { addToCart } from "../../redux/reducers/CartReducer/actions";
@@ -14,9 +11,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 //toastify
 import { toast } from "react-toastify";
+import Loading from "../../components/Loading/Loading";
 
 export default function Products() {
-  const { products } = useSelector((state) => state.productsReducer);
+  const { products, loading } = useSelector((state) => state.productsReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,6 +33,8 @@ export default function Products() {
       theme: "dark",
     });
   };
+
+  if (loading) return <Loading />;
   return (
     <div className={style.cards}>
       {products.map((product) => {

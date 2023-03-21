@@ -8,6 +8,7 @@ export const addToCart = (product) => (dispatch) => {
     payload: { ...product, quantity: product.quantity + 1 },
   });
 };
+
 export const removeFromCart = (product) => (dispatch) => {
   dispatch(quantityDecrease(product));
   if (product.quantity === 0) {
